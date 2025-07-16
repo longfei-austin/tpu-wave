@@ -812,11 +812,11 @@ namespace namespace_energy
             auto & weight = ns_fields::mesh2weight_energy.at(mesh);
             weight->allocate_memory({len_x,len_y});
 
-            const unsigned long bgn_x = ns_config::map_bgn.at('x').at(T_x);
-            const unsigned long bgn_y = ns_config::map_bgn.at('y').at(T_y);
+            const long bgn_x = ns_config::map_bgn.at('x').at(T_x);
+            const long bgn_y = ns_config::map_bgn.at('y').at(T_y);
 
-            const unsigned long end_x = ns_config::map_end.at('x').at(T_x);
-            const unsigned long end_y = ns_config::map_end.at('y').at(T_y);
+            const long end_x = ns_config::map_end.at('x').at(T_x);
+            const long end_y = ns_config::map_end.at('y').at(T_y);
 
             using ns_config::dx;
             weight->acc.set_constant( dx * dx / 2. );
