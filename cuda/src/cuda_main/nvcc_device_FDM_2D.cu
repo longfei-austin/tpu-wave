@@ -119,7 +119,7 @@ int main(int argc, char* argv[])
     // ---------------- Input the physical parameters --------------- //
     // -------------------------------------------------------------- //
 
-
+/*
     // Inverse parameters are stored in Inv_Specs.
     for ( const std::string prmt_name : { "rho" , "vp" , "vs" } )
     {
@@ -136,7 +136,7 @@ int main(int argc, char* argv[])
     //              ns_input::PADDED_inv_prmt_size = ( Nx_model + 1 ) * ( Ny_model + 1 )
     //           THE STRIDE IS 
     //              ( Ny_model + 1 ).
-
+*/
     // for ( const std::string prmt_name : { "rho" , "vp" , "vs" } )
     // {
     //     auto v = Inv_Specs.Map_inv_prmt.at(prmt_name);
@@ -150,15 +150,15 @@ int main(int argc, char* argv[])
 
 
 
-    // // ---- verification (overwrite the above readin parameter data)
-    // for ( const std::string prmt_name : { "rho" , "vp" , "vs" } )
-    //     { Inv_Specs.Map_inv_prmt[ prmt_name ].allocate_memory ( ns_input::PADDED_inv_prmt_size ); }
+    // ---- verification (overwrite the above readin parameter data)
+    for ( const std::string prmt_name : { "rho" , "vp" , "vs" } )
+        { Inv_Specs.Map_inv_prmt[ prmt_name ].allocate_memory ( ns_input::PADDED_inv_prmt_size ); }
 
-    // Inv_Specs.Map_inv_prmt.at("rho").set_constant(1);
-    // Inv_Specs.Map_inv_prmt.at("vp" ).set_constant(2);
-    // Inv_Specs.Map_inv_prmt.at("vs" ).set_constant(1);
-    // // ---- verification
-    // // NOTE: I think the three parameters are indeed constant 1, 2, and 1 in the stored file.
+    Inv_Specs.Map_inv_prmt.at("rho").set_constant(1);
+    Inv_Specs.Map_inv_prmt.at("vp" ).set_constant(2);
+    Inv_Specs.Map_inv_prmt.at("vs" ).set_constant(1);
+    // ---- verification
+    // NOTE: I think the three parameters are indeed constant 1, 2, and 1 in the stored file.
 
 
     // Forward parameters are stored in Grids (interpolated from the inverse parameters).
