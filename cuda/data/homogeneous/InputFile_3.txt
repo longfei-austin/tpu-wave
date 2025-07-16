@@ -1,0 +1,25 @@
+model_1800_1800                   // Nx_model; Ny_model; Nz_model
+
+dxM_1_375                       // input parameter grid spacing (numerator_denominator); 
+           				        // grid spacing is inputted in this way because integers 
+								// are easier to be inputted properly and to operate on 
+                                // when conversion to indices is needed
+
+dxS_1_375                       // simulation grid spacing (num and den)
+
+grids_1800_1800                     // layer number; number of M-grid points for each Domain
+
+
+#bdry_PPFF                   	// boundary types
+
+Nt_60000                        // total time steps
+
+MAXdt_1.6e-04				    // maximally allowed dt, (CFL constant corresponding to 1)
+
+CFL_0.625                       // CFL constant
+
+frequency_5.0                   // central frequency
+
+delay_0.25                      // time delay in the source signal
+
+// If the simulation is in 2D, the last token in model and grids needs to be zero.

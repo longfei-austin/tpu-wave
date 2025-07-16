@@ -1,0 +1,8 @@
+# refinement
+# I think the first letter corresponding to X, 
+# which is the faster direction (y), same for 
+# the pairs of numbers that follows.
+#
+# multiple == 1
+Src_1_MN_401_250_20_250
+Rcv_1_1_MN_801_250_20_250
