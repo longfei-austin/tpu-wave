@@ -11,8 +11,8 @@
 
 #include "namespace_device_variable.cuh"
 
-#include <thrust/device_vector.h>
-#include <thrust/reduce.h>
+// #include <thrust/device_vector.h>
+// #include <thrust/reduce.h>
 
 
 // NOTE: cuda_Struct_Grid is intended to be passed as arguments for __global__ functions, which 

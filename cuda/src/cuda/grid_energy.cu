@@ -15,36 +15,38 @@ double cuda_Class_Grid::energy_calculation ( int N_block , int N_thread )
     if ( N_block  == -1 ) { N_block  = this->G_size_x; }
     if ( N_thread == -1 ) { N_thread = 32; }
 
-    auto & T = this->thrust_memory;
+    // auto & T = this->thrust_memory;
 
-    // if ( (G_type_x - 'M') + (G_type_y - 'M') == ('N' - 'M') * 2 )  // NN grid
-    if ( strcmp( grid_name.c_str(), "SMM" ) == 0 )
-    {
-        auto & Sxx = Vec_soln .at(0);
-        auto & Syy = Vec_soln .at(1);
+    // // if ( (G_type_x - 'M') + (G_type_y - 'M') == ('N' - 'M') * 2 )  // NN grid
+    // if ( strcmp( grid_name.c_str(), "SMM" ) == 0 )
+    // {
+    //     auto & Sxx = Vec_soln .at(0);
+    //     auto & Syy = Vec_soln .at(1);
 
-        auto & P1  = Vec_prmt_enrg.at(0);
-        auto & P2  = Vec_prmt_enrg.at(1);
+    //     auto & P1  = Vec_prmt_enrg.at(0);
+    //     auto & P2  = Vec_prmt_enrg.at(1);
 
-        weighted_square_NORMAL_grid <<< N_block , N_thread >>> ( this->struct_grid , 
-                                                                 Sxx.ptr , Syy.ptr , 
-                                                                 P1 .ptr , P2 .ptr , 
-                                                                 T  .ptr );  // T needs to be allocated thrust_memory ?
-    }
-    else
-    {
-        auto & S = Vec_soln .at(0);
-        auto & P = Vec_prmt_enrg.at(0);        
-        auto & T = this->thrust_memory;
+    //     weighted_square_NORMAL_grid <<< N_block , N_thread >>> ( this->struct_grid , 
+    //                                                              Sxx.ptr , Syy.ptr , 
+    //                                                              P1 .ptr , P2 .ptr , 
+    //                                                              T  .ptr );  // T needs to be allocated thrust_memory ?
+    // }
+    // else
+    // {
+    //     auto & S = Vec_soln .at(0);
+    //     auto & P = Vec_prmt_enrg.at(0);        
+    //     auto & T = this->thrust_memory;
 
-        weighted_square_SINGLE_grid <<< N_block , N_thread >>> ( this->struct_grid , 
-                                                                 S.ptr , P.ptr , T.ptr );  // T needs to be allocated thrust_memory ?
-    }
+    //     weighted_square_SINGLE_grid <<< N_block , N_thread >>> ( this->struct_grid , 
+    //                                                              S.ptr , P.ptr , T.ptr );  // T needs to be allocated thrust_memory ?
+    // }
 
-    thrust::device_ptr<double> d_ptr ( T.ptr );
-    double E = thrust::reduce( d_ptr, d_ptr + T.length );
+    // thrust::device_ptr<double> d_ptr ( T.ptr );
+    // double E = thrust::reduce( d_ptr, d_ptr + T.length );
 
-    return E/2.;
+    // return E/2.;
+
+    return 0.;
 }
 
 
