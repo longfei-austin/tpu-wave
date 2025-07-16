@@ -251,7 +251,7 @@ int main(int argc, char* argv[])
     }
 
 
-    cudaSetDevice(ns_input::device_number);   // select which device to run; 0 is default;
+    // cudaSetDevice(ns_input::device_number);   // select which device to run; 0 is default;
                            // the number of devices can be retrieved by 
                            // cudaGetDeviceCount(&devicesCount);
 // Actually, we set it to -1, which is the reason it causes error on sirius (CUDA 12.9)
